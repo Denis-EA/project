@@ -1,26 +1,38 @@
-site_name: "My Product Docs" # Позже заменим для клиента
-site_url: "https://client-site.com"
+site_name: "Python для аналитиков: с нуля до первых проектов"
+site_url: "https://your-client-site.com"
 theme:
   name: material
   palette:
     - scheme: default
+      primary: indigo
+      accent: deep purple
       toggle:
         icon: material/toggle-switch-off-outline
-        name: Switch to dark mode
+        name: Тёмная тема
     - scheme: slate
+      primary: indigo
+      accent: deep purple
       toggle:
         icon: material/toggle-switch
-        name: Switch to light mode
+        name: Светлая тема
   features:
     - navigation.sections
     - navigation.top
+    - navigation.tracking
     - search.suggest
+    - search.highlight
     - content.code.copy
+  custom_dir: overrides
 
 nav:
-  - Home: index.md
-  - Getting Started: getting-started.md
-  - FAQ: faq.md
+  - Главная: index.md
+  - Программа курса: program.md
+  - Об авторе: about.md
+  - Контакты: contact.md
+  - Уроки:
+      - Урок 1. Введение в Python: lessons/lesson-01.md
+      - Урок 2. Типы данных: lessons/lesson-02.md
+      - Урок 3. Циклы и условия: lessons/lesson-03.md
 
 plugins:
   - search
@@ -30,3 +42,6 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.emoji
+  - attr_list
+  - md_in_html
