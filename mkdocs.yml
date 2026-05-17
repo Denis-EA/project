@@ -37,6 +37,7 @@ nav:
 plugins:
   - search
   - glightbox
+  - mermaid2
 
 markdown_extensions:
   - admonition
