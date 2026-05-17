@@ -1,28 +1,36 @@
+---
+template: home.html
+hide:
+  - navigation
+  - toc
+---
+
 <div id="start" style="max-width: 800px; margin: 60px auto; padding: 0 20px;">
 
 ## Для кого этот курс?
 
-- ✅ **Новичков** — вы никогда не писали код и хотите войти в IT
-- ✅ **Аналитиков** — работаете в Excel, хотите автоматизировать рутину
-- ✅ **Маркетологов** — хотите самостоятельно парсить данные и строить дашборды
-- ✅ **Студентов** — нужен сильный проект для портфолио
+- ✅ **Новичков** — хотите войти в IT без навыков программирования
+- ✅ **Ручных тестировщиков** — хотите освоить автоматизацию и вырасти в зарплате
+- ✅ **Разработчиков** — хотите лучше понимать процессы качества
+- ✅ **Смежников** — аналитики, саппорт, менеджеры, желающие перейти в QA
 
-## Что вы получите
+## Чему вы научитесь
 
-| Результат | Описание |
-|:----------|:---------|
-| 🐍 **Основы Python** | Переменные, типы данных, функции, ООП |
-| 📊 **Анализ данных** | Pandas, визуализация, работа с CSV/Excel |
-| 🌐 **Парсинг сайтов** | BeautifulSoup, requests, API |
-| 🤖 **Автоматизация** | Боты для Telegram, автоотчеты в Google Sheets |
-| 💼 **Портфолио** | 12 готовых проектов на GitHub |
+| Навык | Инструменты |
+|:------|:------------|
+| 🔍 **Ручное тестирование** | Чек-листы, тест-кейсы, исследовательское тестирование |
+| 📝 **Тестовая документация** | TestRail, Google Sheets, Confluence |
+| 🐞 **Баг-репорты** | Jira, YouTrack, баг-трекинг системы |
+| 🌐 **Тестирование API** | Postman, SoapUI, REST, JSON |
+| 📱 **Мобильное тестирование** | Charles Proxy, ADB, эмуляторы |
+| 🤖 **Автотесты** | Selenium, Python, Pytest, Git |
 
 ## Стоимость
 
 <div style="background: #f8f9fa; padding: 30px; border-radius: 8px; text-align: center;">
-  <p style="font-size: 1.2em; color: #666; text-decoration: line-through;">25 000 ₽</p>
-  <p style="font-size: 3em; font-weight: 700; color: #667eea; margin: 10px 0;">19 900 ₽</p>
-  <p style="color: #666;">До конца месяца скидка 20%</p>
+  <p style="font-size: 1.2em; color: #666; text-decoration: line-through;">35 000 ₽</p>
+  <p style="font-size: 3em; font-weight: 700; color: #00897b; margin: 10px 0;">24 900 ₽</p>
+  <p style="color: #666;">До конца месяца скидка 30%</p>
   <a href="contact/" class="md-button md-button--primary">Записаться</a>
 </div>
 
@@ -32,17 +40,17 @@
 
 <div style="text-align: center;">
   <span style="font-size: 2em;">1</span>
-  <p>Смотрите видеоурок и читаете конспект</p>
+  <p>Смотрите видеоурок и изучаете теорию</p>
 </div>
 
 <div style="text-align: center;">
   <span style="font-size: 2em;">2</span>
-  <p>Выполняете практическое задание</p>
+  <p>Тестируете реальное приложение по заданию</p>
 </div>
 
 <div style="text-align: center;">
   <span style="font-size: 2em;">3</span>
-  <p>Получаете обратную связь и идёте дальше</p>
+  <p>Ментор проверяет баг-репорты и даёт обратную связь</p>
 </div>
 
 </div>

@@ -1,17 +1,17 @@
-site_name: "Python для аналитиков: с нуля до первых проектов"
-site_url: "https://your-client-site.com"
+site_name: "Тестирование ПО: с нуля до эксперта"
+site_url: "https://glivero.github.io/project/"
 theme:
   name: material
   palette:
     - scheme: default
-      primary: indigo
-      accent: deep purple
+      primary: teal
+      accent: orange
       toggle:
         icon: material/toggle-switch-off-outline
         name: Тёмная тема
     - scheme: slate
-      primary: indigo
-      accent: deep purple
+      primary: teal
+      accent: orange
       toggle:
         icon: material/toggle-switch
         name: Светлая тема
@@ -30,9 +30,9 @@ nav:
   - Об авторе: about.md
   - Контакты: contact.md
   - Уроки:
-      - Урок 1. Введение в Python: lessons/lesson-01.md
-      - Урок 2. Типы данных: lessons/lesson-02.md
-      - Урок 3. Циклы и условия: lessons/lesson-03.md
+      - Урок 1. Введение в тестирование: lessons/lesson-01.md
+      - Урок 2. Тест-дизайн и чек-листы: lessons/lesson-02.md
+      - Урок 3. Баг-репорты и Jira: lessons/lesson-03.md
 
 plugins:
   - search
@@ -42,9 +42,8 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - attr_list
+  - md_in_html
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - attr_list
-  - md_in_html
-  
