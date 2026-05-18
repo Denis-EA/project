@@ -22,6 +22,7 @@ theme:
     - search.suggest
     - search.highlight
     - content.code.copy
+    - toc.integrate
   custom_dir: overrides
 
 nav:
@@ -37,12 +38,15 @@ nav:
 plugins:
   - search
   - glightbox
-  - mermaid2
 
 markdown_extensions:
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - attr_list
   - md_in_html
   - pymdownx.emoji:

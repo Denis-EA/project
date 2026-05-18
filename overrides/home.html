@@ -1,51 +1,62 @@
 {% extends "main.html" %}
 
 {% block announce %}
-  <strong>Старт курса 1 августа!</strong> Запишитесь сейчас и получите скидку 30%.
+  <strong>🔥 Старт 1 августа!</strong> Скидка 30% + чек-лист «50 вопросов с собеседования QA» в подарок.
 {% endblock %}
 
 {% block tabs %}
   {{ super() }}
   
-  <!-- Hero-блок -->
-  <section style="background: linear-gradient(135deg, #00897b 0%, #ff6e40 100%); padding: 80px 20px; text-align: center; color: white;">
-    <div style="max-width: 800px; margin: 0 auto;">
-      <h1 style="font-size: 3em; margin-bottom: 20px; font-weight: 700;">
-        Тестирование ПО: с нуля до эксперта
+  <!-- Hero -->
+  <section style="background: linear-gradient(135deg, #4a148c 0%, #7b1fa2 100%); padding: 60px 20px; text-align: center; color: white;">
+    <div style="max-width: 700px; margin: 0 auto;">
+      <h1 style="font-size: 2.5em; margin-bottom: 10px; font-weight: 800;">
+        Станьте QA-инженером за 8 недель
       </h1>
-      <p style="font-size: 1.3em; margin-bottom: 30px; opacity: 0.95;">
-        Освойте ручное и автоматизированное тестирование за 8 недель.<br>
-        Даже если вы никогда не работали в IT.
-      </p>
-      <a href="#start" class="md-button md-button--primary" style="font-size: 1.1em; padding: 12px 30px; background: #ff6e40; border: none;">
-    Записаться на курс
-</a>
+      <p style="font-size: 1.2em; margin-bottom: 5px; opacity: 0.95;">Даже если вы никогда не работали в IT</p>
+      <p style="font-size: 1em; margin-bottom: 25px; opacity: 0.8;">Ручное тестирование → Автотесты → Трудоустройство</p>
+      <a href="#start" class="md-button md-button--primary" style="font-size: 1.1em; padding: 14px 35px; background: #ff6e40; border: none; border-radius: 8px; font-weight: 700;">
+        🚀 Записаться со скидкой 30%
+      </a>
     </div>
   </section>
 
-  <!-- Блок преимуществ -->
-  <section style="padding: 60px 20px; max-width: 1000px; margin: 0 auto;">
-    <h2 style="text-align: center; margin-bottom: 40px;">Почему этот курс?</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
-      
-      <div style="text-align: center; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-        <span style="font-size: 3em;">🔍</span>
-        <h3>Реальные проекты</h3>
-        <p>Тестируем настоящие приложения: интернет-магазин, API, мобильное приложение.</p>
+  <!-- Статистика -->
+  <section style="padding: 30px 20px; max-width: 700px; margin: 0 auto;">
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; text-align: center;">
+      <div>
+        <div style="font-size: 2em; font-weight: 800; color: #7b1fa2;">8</div>
+        <div style="color: #666; font-size: 0.9em;">недель</div>
       </div>
-      
-      <div style="text-align: center; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-        <span style="font-size: 3em;">🛠️</span>
-        <h3>Инструменты с рынка</h3>
-        <p>Jira, TestRail, Postman, Charles, Selenium. Всё, что нужно работодателю.</p>
+      <div>
+        <div style="font-size: 2em; font-weight: 800; color: #7b1fa2;">300+</div>
+        <div style="color: #666; font-size: 0.9em;">выпускников</div>
       </div>
-      
-      <div style="text-align: center; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-        <span style="font-size: 3em;">💼</span>
-        <h3>Трудоустройство</h3>
-        <p>Помогаем составить резюме, подготовиться к собеседованию и найти работу.</p>
+      <div>
+        <div style="font-size: 2em; font-weight: 800; color: #7b1fa2;">85%</div>
+        <div style="color: #666; font-size: 0.9em;">нашли работу</div>
       </div>
-      
+    </div>
+  </section>
+
+<!-- Для кого -->
+  <section style="padding: 40px 20px; background: var(--md-default-bg-color);">
+    <div style="max-width: 900px; margin: 0 auto;">
+      <h2 style="text-align: center; margin-bottom: 25px;">Этот курс для вас, если вы:</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+        <div style="background: var(--md-code-bg-color); padding: 20px; border-radius: 8px; border-left: 4px solid #7b1fa2;">
+          <h3 style="margin: 0 0 5px; color: var(--md-default-fg-color);">🆕 Новичок в IT</h3>
+          <p style="color: var(--md-default-fg-color--light); margin: 0;">Хотите войти в IT без навыков программирования.</p>
+        </div>
+        <div style="background: var(--md-code-bg-color); padding: 20px; border-radius: 8px; border-left: 4px solid #ff6e40;">
+          <h3 style="margin: 0 0 5px; color: var(--md-default-fg-color);">📈 Смена профессии</h3>
+          <p style="color: var(--md-default-fg-color--light); margin: 0;">Хотите зарплату от 80 000 ₽ в новой сфере.</p>
+        </div>
+        <div style="background: var(--md-code-bg-color); padding: 20px; border-radius: 8px; border-left: 4px solid #7b1fa2;">
+          <h3 style="margin: 0 0 5px; color: var(--md-default-fg-color);">🔧 Ручной тестировщик</h3>
+          <p style="color: var(--md-default-fg-color--light); margin: 0;">Освоить автотесты и вырасти до 150 000+ ₽.</p>
+        </div>
+      </div>
     </div>
   </section>
 
