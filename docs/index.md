@@ -5,29 +5,33 @@ hide:
   - toc
 ---
 
-<div id="start" style="max-width: 800px; margin: 60px auto; padding: 0 20px;">
-
 ## Для кого этот курс?
 
-- ✅ **Новичков** — хотите войти в IT без навыков программирования
-- ✅ **Ручных тестировщиков** — хотите освоить автоматизацию и вырасти в зарплате
-- ✅ **Разработчиков** — хотите лучше понимать процессы качества
-- ✅ **Смежников** — аналитики, саппорт, менеджеры, желающие перейти в QA
+<div class="grid cards" markdown>
+
+- :material-check:{ .check-icon } **Новичков** — хотите войти в IT без навыков программирования
+- :material-check:{ .check-icon } **Ручных тестировщиков** — хотите освоить автоматизацию и вырасти в зарплате
+- :material-check:{ .check-icon } **Разработчиков** — хотите лучше понимать процессы качества
+- :material-check:{ .check-icon } **Смежников** — аналитики, саппорт, менеджеры, желающие перейти в QA
+
+</div>
 
 ## Чему вы научитесь
 
 | Навык | Инструменты |
 |:------|:------------|
-| 🔍 **Ручное тестирование** | Чек-листы, тест-кейсы, исследовательское тестирование |
-| 📝 **Тестовая документация** | TestRail, Google Sheets, Confluence |
-| 🐞 **Баг-репорты** | Jira, YouTrack, баг-трекинг системы |
-| 🌐 **Тестирование API** | Postman, SoapUI, REST, JSON |
-| 📱 **Мобильное тестирование** | Charles Proxy, ADB, эмуляторы |
-| 🤖 **Автотесты** | Selenium, Python, Pytest, Git |
+| :material-bug-check: **Ручное тестирование** | Чек-листы, тест-кейсы, исследовательское тестирование |
+| :material-file-document: **Тестовая документация** | TestRail, Google Sheets, Confluence |
+| :material-bug: **Баг-репорты** | Jira, YouTrack, баг-трекинг системы |
+| :material-api: **Тестирование API** | Postman, SoapUI, REST, JSON |
+| :material-cellphone: **Мобильное тестирование** | Charles Proxy, ADB, эмуляторы |
+| :material-robot: **Автотесты** | Selenium, Python, Pytest, Git |
+
+<div id="start"></div>
 
 ## Стоимость
 
-<div style="background: #f8f9fa; padding: 30px; border-radius: 8px; text-align: center;">
+<div style="background: #f8f9fa; padding: 30px; border-radius: 8px; text-align: center;" markdown>
   <p style="font-size: 1.2em; color: #666; text-decoration: line-through;">35 000 ₽</p>
   <p style="font-size: 3em; font-weight: 700; color: #00897b; margin: 10px 0;">24 900 ₽</p>
   <p style="color: #666;">До конца месяца скидка 30%</p>
@@ -36,23 +40,26 @@ hide:
 
 ## Как проходит обучение
 
-<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 30px;">
+<div class="grid cards" style="grid-template-columns: repeat(3, 1fr);" markdown>
 
-<div style="text-align: center;">
-  <span style="font-size: 2em;">1</span>
-  <p>Смотрите видеоурок и изучаете теорию</p>
-</div>
+- **:material-numeric-1-circle: Шаг 1**
+  Смотрите видеоурок и изучаете теорию
 
-<div style="text-align: center;">
-  <span style="font-size: 2em;">2</span>
-  <p>Тестируете реальное приложение по заданию</p>
-</div>
+- **:material-numeric-2-circle: Шаг 2**
+  Тестируете реальное приложение по заданию
 
-<div style="text-align: center;">
-  <span style="font-size: 2em;">3</span>
-  <p>Ментор проверяет баг-репорты и даёт обратную связь</p>
-</div>
+- **:material-numeric-3-circle: Шаг 3**
+  Ментор проверяет баг-репорты и даёт обратную связь
 
 </div>
 
-</div>
+## Частые вопросы
+
+??? question "Нужен ли опыт программирования?"
+    **Нет.** Первые 5 недель — только ручное тестирование. К автоматизации переходим плавно, обучая основам Python с нуля.
+
+??? question "Сколько времени занимает обучение?"
+    8 недель, по 6–8 часов в неделю. Доступ к материалам остаётся навсегда.
+
+??? question "Помогаете ли с трудоустройством?"
+    Да. В финальном модуле мы составляем резюме, готовимся к собеседованию и разбираем реальные кейсы с интервью.
