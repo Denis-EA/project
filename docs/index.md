@@ -114,7 +114,7 @@ hide:
 <div style="display: flex; align-items: center; gap: 25px; max-width: 650px; margin: 0 auto; padding: 25px; background: var(--md-code-bg-color); border-radius: 10px;">
   <div style="width: 90px; height: 90px; background: linear-gradient(135deg, #7b1fa2, #4a148c); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2em; font-weight: 700; flex-shrink: 0;">АС</div>
   <div>
-    <h3 style="margin: 0 0 5px; color: var(--md-default-fg-color);">Денис Ермакова</h3>
+    <h3 style="margin: 0 0 5px; color: var(--md-default-fg-color);">Денис Ермаков</h3>
     <p style="color: #7b1fa2; font-weight: 600; margin: 0 0 5px;">Expert QA Engineer, Rostelecom</p>
     <p style="color: var(--md-default-fg-color--light); margin: 0 0 5px;">7 лет в тестировании</p>
     <a href="about/" style="color: #7b1fa2; font-weight: 600;">Подробнее об авторе →</a>
