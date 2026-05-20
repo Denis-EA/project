@@ -1,0 +1,1080 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://denis-ea.github.io/project/lessons/lesson-03/">
+      
+      
+        <link rel="prev" href="../lesson-02/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Урок 3. Баг-репорты и Jira - Тестирование ПО: с нуля до эксперта</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#3-jira" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Тестирование ПО: с нуля до эксперта" class="md-header__button md-logo" aria-label="Тестирование ПО: с нуля до эксперта" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Тестирование ПО: с нуля до эксперта
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Урок 3. Баг-репорты и Jira
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-orange" aria-label="Тёмная тема" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Тёмная тема" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="deep-orange" aria-label="Светлая тема" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Светлая тема" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Тестирование ПО: с нуля до эксперта" class="md-nav__button md-logo" aria-label="Тестирование ПО: с нуля до эксперта" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Тестирование ПО: с нуля до эксперта
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../program/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Программа курса
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Об авторе
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Контакты
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Уроки
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Уроки
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Урок 1. Введение в тестирование
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Урок 2. Тест-дизайн и чек-листы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Урок 3. Баг-репорты и Jira
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Урок 3. Баг-репорты и Jira
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как найти баг?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Как найти баг?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Где искать баги?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как оформить баг-репорт
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Как оформить баг-репорт">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Структура идеального баг-репорта
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пример плохого vs хорошего баг-репорта
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jira" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jira для тестировщика
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Jira для тестировщика">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jira_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Как завести баг в Jira
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jira_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Основные поля при создании бага в Jira
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Приоритет и серьёзность: в чём разница?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ключевые термины урока
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Задание">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Заведите 3 баг-репорта
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="3-jira">Урок 3. Баг-репорты и Jira</h1>
+<div class="admonition info">
+<p class="admonition-title">Цель урока</p>
+<p>Научиться находить баги, правильно их оформлять и заводить в Jira — главном инструменте тестировщика.</p>
+</div>
+<hr>
+<h2 id="_1">Как найти баг?</h2>
+<p><strong>Баг</strong> — это любое расхождение между ожидаемым и фактическим поведением. Но не каждое расхождение — это баг. Иногда это фича.</p>
+<div class="admonition tip">
+<p class="admonition-title">Баг или фича?</p>
+<p><strong>Баг:</strong> Кнопка "Оплатить" не нажимается → пользователь не может купить товар.</p>
+<p><strong>Фича:</strong> На сайте нет кнопки "Удалить аккаунт" → так задумано, нужно писать в поддержку.</p>
+<p>Если сомневаетесь — спросите аналитика или менеджера.</p>
+</div>
+<h3 id="_2">Где искать баги?</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Область</th>
+<th style="text-align: left;">Что проверять</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Функциональность</strong></td>
+<td style="text-align: left;">Работает ли кнопка, форма, переход по ссылке</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Валидация</strong></td>
+<td style="text-align: left;">Принимает ли поле некорректные данные (буквы в номере телефона)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Границы</strong></td>
+<td style="text-align: left;">Что будет, если ввести -1, 0, 999999999</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Интерфейс</strong></td>
+<td style="text-align: left;">Не съезжает ли вёрстка на мобильном, не перекрываются ли элементы</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Логика</strong></td>
+<td style="text-align: left;">Можно ли оформить заказ с пустой корзиной</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="-">Как оформить баг-репорт</h2>
+<p>Хороший баг-репорт — это такой, который разработчик поймёт с первого раза и не вернёт вам с вопросом "а что тут не так?".</p>
+<h3 id="-_1">Структура идеального баг-репорта</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Поле</th>
+<th style="text-align: left;">Что писать</th>
+<th style="text-align: left;">Пример</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Заголовок</strong></td>
+<td style="text-align: left;">Кратко: что, где и при каких условиях</td>
+<td style="text-align: left;">"Кнопка Войти неактивна при корректном логине и пароле"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Окружение</strong></td>
+<td style="text-align: left;">Устройство, браузер, версия ОС</td>
+<td style="text-align: left;">iPhone 14, Safari 16.4, iOS 16.3</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Шаги</strong></td>
+<td style="text-align: left;">Пошагово, что делали</td>
+<td style="text-align: left;">1. Открыть сайт 2. Ввести логин 3. Ввести пароль 4. Нажать Войти</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ожидаемый результат</strong></td>
+<td style="text-align: left;">Что должно было произойти</td>
+<td style="text-align: left;">Пользователь попадает в личный кабинет</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Фактический результат</strong></td>
+<td style="text-align: left;">Что произошло на самом деле</td>
+<td style="text-align: left;">Кнопка "Войти" не реагирует на нажатие, авторизация не происходит</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Приоритет</strong></td>
+<td style="text-align: left;">Насколько срочно чинить</td>
+<td style="text-align: left;">High, Medium, Low</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Серьёзность</strong></td>
+<td style="text-align: left;">Насколько критичен для продукта</td>
+<td style="text-align: left;">Blocker, Critical, Major, Minor</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Вложения</strong></td>
+<td style="text-align: left;">Скриншот, видео, логи</td>
+<td style="text-align: left;"><code>bug_login_button.mp4</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="vs-">Пример плохого vs хорошего баг-репорта</h3>
+<div class="admonition failure">
+<p class="admonition-title">Плохой баг-репорт</p>
+<p><strong>Заголовок:</strong> Не работает вход</p>
+<p><strong>Описание:</strong> Захожу на сайт, ввожу данные, а оно не пускает. Почините срочно!!!</p>
+<p><em>Разработчик потратит час, чтобы понять, что именно не так.</em></p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Хороший баг-репорт</p>
+<p><strong>Заголовок:</strong> Кнопка "Войти" не реагирует на нажатие в Chrome 115</p>
+<p><strong>Окружение:</strong> Windows 10, Chrome 115.0</p>
+<p><strong>Шаги:</strong>
+1. Открыть https://example-shop.ru/login
+2. Ввести логин: <code>testuser@mail.ru</code>
+3. Ввести пароль: <code>Qwerty123!</code>
+4. Нажать кнопку "Войти"</p>
+<p><strong>Ожидаемый результат:</strong> Пользователь авторизуется и попадает на главную страницу личного кабинета.</p>
+<p><strong>Фактический результат:</strong> Кнопка "Войти" визуально нажимается, но ничего не происходит. Авторизация не выполняется. Ошибка в консоли: <code>Uncaught TypeError: Cannot read properties of null</code>.</p>
+<p><strong>Приоритет:</strong> High
+<strong>Серьёзность:</strong> Blocker (пользователи не могут войти)</p>
+<p><strong>Вложения:</strong> <a href="">Скриншот ошибки в консоли</a>, <a href="">Видео воспроизведения бага</a></p>
+<p><em>Разработчик поймёт проблему за 30 секунд.</em></p>
+</div>
+<hr>
+<h2 id="jira">Jira для тестировщика</h2>
+<p><strong>Jira</strong> — это система управления задачами, в которой живут баг-репорты, задачи на разработку и улучшения.</p>
+<h3 id="jira_1">Как завести баг в Jira</h3>
+<pre class="mermaid"><code>graph TD
+    A[Нашли баг] --&gt; B{Проверили:&lt;br&gt;это точно баг?}
+    B --&gt;|Да| C{Искали в Jira:&lt;br&gt;такой уже есть?}
+    B --&gt;|Нет| D[Пропускаем]
+    C --&gt;|Нет| E[Создаём&lt;br&gt;новый баг-репорт]
+    C --&gt;|Да| F[Добавляем&lt;br&gt;комментарий]
+    E --&gt; G[Заполняем&lt;br&gt;все поля]
+    G --&gt; H[Прикрепляем&lt;br&gt;скриншоты и логи]
+    H --&gt; I[Назначаем&lt;br&gt;на разработчика]
+    I --&gt; J[Ждём&lt;br&gt;исправления]
+    J --&gt; K[Перепроверяем&lt;br&gt;после исправления]</code></pre>
+<h3 id="jira_2">Основные поля при создании бага в Jira</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Поле</th>
+<th style="text-align: left;">Что выбрать</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Тип задачи</strong></td>
+<td style="text-align: left;">Bug</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Проект</strong></td>
+<td style="text-align: left;">Название вашего продукта</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Заголовок</strong></td>
+<td style="text-align: left;">Краткое описание (см. пример выше)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Приоритет</strong></td>
+<td style="text-align: left;">High / Medium / Low</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Серьёзность</strong></td>
+<td style="text-align: left;">Blocker / Critical / Major / Minor / Trivial</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Описание</strong></td>
+<td style="text-align: left;">Шаги, ожидаемый и фактический результат</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Версия</strong></td>
+<td style="text-align: left;">Версия приложения, где найден баг</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Исполнитель</strong></td>
+<td style="text-align: left;">Разработчик (или оставить пустым для распределения)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Приложение</strong></td>
+<td style="text-align: left;">Скриншоты, видео, логи</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_3">Приоритет и серьёзность: в чём разница?</h2>
+<div class="admonition warning">
+<p class="admonition-title">Частая путаница</p>
+<p><strong>Серьёзность</strong> — насколько критичен баг для продукта (Blocker → всё стоит, Minor → мелочь).</p>
+<p><strong>Приоритет</strong> — насколько срочно нужно чинить (High → сегодня, Low → когда-нибудь).</p>
+<p>Они не всегда совпадают!</p>
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Ситуация</th>
+<th style="text-align: left;">Серьёзность</th>
+<th style="text-align: left;">Приоритет</th>
+<th style="text-align: left;">Почему</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Кнопка "Купить" не работает</td>
+<td style="text-align: left;">Blocker</td>
+<td style="text-align: left;">High</td>
+<td style="text-align: left;">Деньги не поступают</td>
+</tr>
+<tr>
+<td style="text-align: left;">Опечатка в тексте на главной</td>
+<td style="text-align: left;">Minor</td>
+<td style="text-align: left;">High</td>
+<td style="text-align: left;">Портал крупный, имидж важен</td>
+</tr>
+<tr>
+<td style="text-align: left;">Баг в админке для 1 сотрудника</td>
+<td style="text-align: left;">Major</td>
+<td style="text-align: left;">Low</td>
+<td style="text-align: left;">Пользователи не видят, можно отложить</td>
+</tr>
+<tr>
+<td style="text-align: left;">Логотип съехал в футере</td>
+<td style="text-align: left;">Minor</td>
+<td style="text-align: left;">Low</td>
+<td style="text-align: left;">Никому не мешает</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_4">Ключевые термины урока</h2>
+<div class="admonition abstract">
+<p class="admonition-title">Глоссарий</p>
+<ul>
+<li><strong>Баг-репорт</strong> — документ, описывающий дефект (шаги, ожидание, факт, окружение).</li>
+<li><strong>Jira</strong> — самый популярный баг-трекинговый инструмент в мире.</li>
+<li><strong>Приоритет</strong> — срочность исправления (High, Medium, Low).</li>
+<li><strong>Серьёзность</strong> — степень влияния на продукт (Blocker, Critical, Major, Minor).</li>
+<li><strong>Окружение</strong> — устройство, браузер, ОС, версия приложения.</li>
+</ul>
+</div>
+<h2 id="_5">Задание</h2>
+<div class="admonition question">
+<p class="admonition-title">Практика</p>
+</div>
+<h3 id="3-">Заведите 3 баг-репорта</h3>
+<p>Используя чек-лист из прошлого урока, найдите 3 бага на сайте интернет-магазина и оформите их по шаблону:</p>
+<p>Для каждого бага заполните:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Поле</th>
+<th style="text-align: left;">Ваш ответ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Заголовок</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Окружение</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Шаги</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Ожидаемый результат</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Фактический результат</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Приоритет</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Серьёзность</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Скриншот</td>
+<td style="text-align: left;">Приложить</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Критерии оценки</p>
+<p>3 балла — баг-репорты понятны, заполнены все поля</p>
+<p>4 балла — всё выше + правильно определены приоритет и серьёзность</p>
+<p>5 баллов — всё выше + есть скриншоты/видео + разработчик поймёт с первого взгляда</p>
+</div>
+<p>Присылайте баг-репорты в чат ментору.</p>
+<div class="admonition success">
+<p class="admonition-title">Поздравляю!</p>
+<p>Вы прошли Модуль 1! Теперь вы умеете:</p>
+<p>✅ Находить баги и оформлять их по стандартам индустрии</p>
+<p>✅ Работать с Jira — главным инструментом тестировщика</p>
+<p>✅ Определять приоритет и серьёзность бага</p>
+<p>✅ Составлять чек-листы на основе классов эквивалентности и границ</p>
+</div>
+<p>В следующем модуле — Инструменты тестировщика: освоим Postman, Charles Proxy и SQL для реальных проектов.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "navigation.tracking", "search.suggest", "search.highlight", "content.code.copy", "toc.integrate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

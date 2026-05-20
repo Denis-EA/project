@@ -1,0 +1,927 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://denis-ea.github.io/project/lessons/lesson-02/">
+      
+      
+        <link rel="prev" href="../lesson-01/">
+      
+      
+        <link rel="next" href="../lesson-03/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Урок 2. Тест-дизайн и чек-листы - Тестирование ПО: с нуля до эксперта</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#2-" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Тестирование ПО: с нуля до эксперта" class="md-header__button md-logo" aria-label="Тестирование ПО: с нуля до эксперта" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Тестирование ПО: с нуля до эксперта
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Урок 2. Тест-дизайн и чек-листы
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-orange" aria-label="Тёмная тема" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Тёмная тема" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="deep-orange" aria-label="Светлая тема" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Светлая тема" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Тестирование ПО: с нуля до эксперта" class="md-nav__button md-logo" aria-label="Тестирование ПО: с нуля до эксперта" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    Тестирование ПО: с нуля до эксперта
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../program/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Программа курса
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Об авторе
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Контакты
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Уроки
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Уроки
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Урок 1. Введение в тестирование
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Урок 2. Тест-дизайн и чек-листы
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Урок 2. Тест-дизайн и чек-листы
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что такое тест-дизайн?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Классы эквивалентности
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Классы эквивалентности">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1865" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Пример: Поле "Возраст" (допустимые значения: 18–65 лет)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Граничные значения
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Составляем первый чек-лист
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ключевые термины урока
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Урок 3. Баг-репорты и Jira
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="2-">Урок 2. Тест-дизайн и чек-листы</h1>
+<div class="admonition info">
+<p class="admonition-title">Цель урока</p>
+<p>Научиться применять классы эквивалентности и граничные значения — два главных инструмента тест-дизайна. Составить свой первый чек-лист.</p>
+</div>
+<hr>
+<h2 id="-">Что такое тест-дизайн?</h2>
+<p>Тест-дизайн — это <strong>искусство выбирать минимум проверок, которые найдут максимум багов</strong>. Невозможно протестировать всё (в любом приложении тысячи сценариев), поэтому тестировщик должен уметь выделять главное.</p>
+<div class="admonition tip">
+<p class="admonition-title">Аналогия</p>
+<p>Представьте, что вам нужно проверить, работает ли лифт в 100-этажном здании. Вы же не будете ездить на каждый этаж с каждым возможным весом? Вы проверите:</p>
+<ul>
+<li>Пустую кабину (0 кг)</li>
+<li>Среднюю загрузку (400 кг — 5 человек)</li>
+<li>Максимальную загрузку (1000 кг — предел)</li>
+</ul>
+<p>Это и есть тест-дизайн: выбрать ключевые точки вместо тысячи бессмысленных проверок.</p>
+</div>
+<hr>
+<h2 id="_1">Классы эквивалентности</h2>
+<p><strong>Классы эквивалентности</strong> — это группы данных, которые приложение обрабатывает одинаково. Достаточно проверить одно значение из группы, чтобы убедиться, что вся группа работает.</p>
+<h3 id="1865">Пример: Поле "Возраст" (допустимые значения: 18–65 лет)</h3>
+<pre class="mermaid"><code>graph TD
+    A[Все возможные&lt;br&gt;значения] --&gt; B[Невалидные: &lt; 18]
+    A --&gt; C[Валидные: 18–65]
+    A --&gt; D[Невалидные: &gt; 65]
+    B --&gt; B1[Проверить:&lt;br&gt;0, -5, 17]
+    C --&gt; C1[Проверить:&lt;br&gt;18, 30, 65]
+    D --&gt; D1[Проверить:&lt;br&gt;66, 100, 200]</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Класс</th>
+<th style="text-align: left;">Диапазон</th>
+<th style="text-align: left;">Что проверять</th>
+<th style="text-align: left;">Ожидаемый результат</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Невалидный 1</td>
+<td style="text-align: left;">Меньше 18</td>
+<td style="text-align: left;">0, -5, 17</td>
+<td style="text-align: left;">Ошибка "Вам должно быть 18+"</td>
+</tr>
+<tr>
+<td style="text-align: left;">Валидный</td>
+<td style="text-align: left;">18–65</td>
+<td style="text-align: left;">18, 30, 65</td>
+<td style="text-align: left;">Поле принимает значение</td>
+</tr>
+<tr>
+<td style="text-align: left;">Невалидный 2</td>
+<td style="text-align: left;">Больше 65</td>
+<td style="text-align: left;">66, 100, 200</td>
+<td style="text-align: left;">Ошибка "Максимальный возраст — 65"</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition success">
+<p class="admonition-title">Правило одного представителя</p>
+<p>Если вы проверили значение 30 из валидного класса и оно работает, скорее всего, значения 25, 40, 55 тоже сработают. Не нужно проверять все подряд — это экономит часы тестирования.</p>
+</div>
+<h2 id="_2">Граничные значения</h2>
+<p>Граничные значения — это точки на стыке классов эквивалентности. Баги чаще всего прячутся именно на границах.</p>
+<p>Пример для того же поля "Возраст" (18–65)</p>
+<pre class="mermaid"><code>graph LR
+    A[17] --&gt; B[Граница: 18]
+    B --&gt; C[Валидные&lt;br&gt;значения]
+    D[65] --&gt; E[Граница: 66]
+    E --&gt; F[Невалидные]</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Точка</th>
+<th style="text-align: left;">Значение</th>
+<th style="text-align: left;">Тип</th>
+<th style="text-align: left;">Почему важно</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Нижняя граница − 1</td>
+<td style="text-align: left;">17</td>
+<td style="text-align: left;">Невалидный</td>
+<td style="text-align: left;">Часто путают со знаком "≥"</td>
+</tr>
+<tr>
+<td style="text-align: left;">Нижняя граница</td>
+<td style="text-align: left;">18</td>
+<td style="text-align: left;">Валидный</td>
+<td style="text-align: left;">Минимально допустимое</td>
+</tr>
+<tr>
+<td style="text-align: left;">Верхняя граница</td>
+<td style="text-align: left;">65</td>
+<td style="text-align: left;">Валидный</td>
+<td style="text-align: left;">Максимально допустимое</td>
+</tr>
+<tr>
+<td style="text-align: left;">Верхняя граница + 1</td>
+<td style="text-align: left;">66</td>
+<td style="text-align: left;">Невалидный</td>
+<td style="text-align: left;">Часто путают со знаком "≤"</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Золотое правило тестировщика</p>
+<p>Всегда проверяйте границы минус 1, границу, границу плюс 1. Именно здесь разработчики чаще всего ошибаются в условиях if age &gt;= 18 vs if age &gt; 18.</p>
+</div>
+<h2 id="-_1">Составляем первый чек-лист</h2>
+<p>Чек-лист — это краткий список того, что нужно проверить. В отличие от тест-кейса, в чек-листе нет подробных шагов — только суть проверки.</p>
+<p>Пример чек-листа для формы регистрации</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">№</th>
+<th style="text-align: left;">Что проверяем</th>
+<th style="text-align: left;">Результат</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Регистрация с валидными данными</td>
+<td style="text-align: left;">☐ Pass / ☐ Fail</td>
+</tr>
+<tr>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">Поле "Имя" пустое</td>
+<td style="text-align: left;">☐ Pass / ☐ Fail</td>
+</tr>
+<tr>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">Поле "Имя" содержит цифры</td>
+<td style="text-align: left;">☐ Pass / ☐ Fail</td>
+</tr>
+<tr>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">Поле "Email" без символа @</td>
+<td style="text-align: left;">☐ Pass / ☐ Fail</td>
+</tr>
+<tr>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">Поле "Email" с пробелом в середине</td>
+<td style="text-align: left;">☐ Pass / ☐ Fail</td>
+</tr>
+<tr>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">Пароль меньше 8 символов</td>
+<td style="text-align: left;">☐ Pass / ☐ Fail</td>
+</tr>
+<tr>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">Пароль без заглавной буквы</td>
+<td style="text-align: left;">☐ Pass / ☐ Fail</td>
+</tr>
+<tr>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">Пароль из одних пробелов</td>
+<td style="text-align: left;">☐ Pass / ☐ Fail</td>
+</tr>
+<tr>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">Возраст меньше 18</td>
+<td style="text-align: left;">☐ Pass / ☐ Fail</td>
+</tr>
+<tr>
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">Возраст ровно 18</td>
+<td style="text-align: left;">☐ Pass / ☐ Fail</td>
+</tr>
+<tr>
+<td style="text-align: left;">11</td>
+<td style="text-align: left;">Возраст больше 120</td>
+<td style="text-align: left;">☐ Pass / ☐ Fail</td>
+</tr>
+<tr>
+<td style="text-align: left;">12</td>
+<td style="text-align: left;">Согласие на обработку данных не отмечено</td>
+<td style="text-align: left;">☐ Pass / ☐ Fail</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Как составлять хороший чек-лист</p>
+<p>Один пункт = одна проверка. Не смешивайте "Проверить логин и пароль" в одном пункте.</p>
+<p>Пишите кратко. "Кнопка Войти неактивна при пустом логине", а не "Открываем страницу, вводим логин..."</p>
+<p>Используйте классы эквивалентности и границы. Это ваш каркас для чек-листа.</p>
+</div>
+<h2 id="_3">Ключевые термины урока</h2>
+<div class="admonition abstract">
+<p class="admonition-title">Глоссарий</p>
+<p>Тест-дизайн — методика отбора тестов для максимального покрытия при минимальных затратах.</p>
+<p>Класс эквивалентности — группа значений, которые приложение обрабатывает одинаково.</p>
+<p>Граничные значения — значения на стыке классов, где вероятность бага максимальна.</p>
+<p>Чек-лист — краткий список проверок без подробных шагов.</p>
+</div>
+<h2 id="_4">Задание</h2>
+<div class="admonition question">
+<p class="admonition-title">Практика</p>
+<p>Составьте чек-лист для поиска на сайте
+Зайдите на любой интернет-магазин и составьте чек-лист для проверки строки поиска. Используйте классы эквивалентности и граничные значения.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Подсказка</p>
+<p>Подумайте о таких ситуациях:</p>
+<p>Пустой поисковый запрос</p>
+<p>Очень длинный запрос (1000 символов)</p>
+<p>Спецсимволы: !@#$%^&amp;*()</p>
+<p>Пробелы в начале и конце</p>
+<p>Поиск по одному символу</p>
+<p>Эмодзи 😊 в поиске</p>
+<p>Формат сдачи: чек-лист из 10–15 пунктов в Google Sheets или просто текстом в чат ментору.</p>
+<p>На следующем уроке разберём, как оформлять найденные баги в Jira.</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Поздравляю!</p>
+<p>Теперь вы знаете два главных инструмента тест-дизайна: классы эквивалентности и граничные значения. Это база, которую используют все тестировщики мира.</p>
+</div>
+<p>В следующем уроке — Баг-репорты и Jira: научимся оформлять баги так, чтобы разработчики вас обожали.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "navigation.tracking", "search.suggest", "search.highlight", "content.code.copy", "toc.integrate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
